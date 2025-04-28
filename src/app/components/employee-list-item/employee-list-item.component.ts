@@ -1,12 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Employee {
-  firstName: string;
-  lastName: string;
-  id: string;
-  subordinates: Employee[];
-  isExpanded?: boolean;
-}
+import { Employee } from '../../interfaces/employee';
 
 @Component({
   selector: 'app-employee-list-item',

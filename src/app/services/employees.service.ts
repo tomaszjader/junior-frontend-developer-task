@@ -2,13 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import employeeStructure from '../data/employee-structure.json';
-
-interface Employee {
-  firstName: string;
-  lastName: string;
-  id: string;
-  subordinates: Employee[];
-}
+import { Employee } from '../interfaces/employee';
 
 @Injectable({
   providedIn: 'root'
