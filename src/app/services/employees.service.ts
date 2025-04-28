@@ -1,7 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import jsonData from '../data/employees.json';
+import employeeStructure from '../data/employee-structure.json';
+
+interface Employee {
+  firstName: string;
+  lastName: string;
+  id: string;
+  subordinates: Employee[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +16,23 @@ import jsonData from '../data/employees.json';
 export class EmployeesService {
 
   constructor(private http: HttpClient) { }
-  getEmployeesJsonData() {
-    return jsonData;
+
+  getEmployeeStructure(): Employee {
+    return employeeStructure;
+  }
+
+  getEmployeeById(employees: Employee, id: string): Employee | null {
+    if (employees.id === id) {
+      return employees;
+    }
+    
+    for (const subordinate of employees.subordinates) {
+      const found = this.getEmployeeById(subordinate, id);
+      if (found) {
+        return found;
+      }
+    }
+    
+    return null;
   }
 }

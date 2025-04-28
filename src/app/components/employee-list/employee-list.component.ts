@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from 'src/app/services/employees.service';
+import { EmployeesService } from '../../services/employees.service';
+
+interface Employee {
+  firstName: string;
+  lastName: string;
+  id: string;
+  subordinates: Employee[];
+  isExpanded?: boolean;
+}
 
 @Component({
   selector: 'app-employee-list',
@@ -7,10 +15,11 @@ import { EmployeesService } from 'src/app/services/employees.service';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-  constructor(private dataService: EmployeesService) {}
-  employees: any[] = [];
-  ngOnInit(): void {
-    this.employees = this.dataService.getEmployeesJsonData();
+  employeeStructure!: Employee;
 
+  constructor(private employeesService: EmployeesService) {}
+
+  ngOnInit(): void {
+    this.employeeStructure = this.employeesService.getEmployeeStructure();
   }
 }
