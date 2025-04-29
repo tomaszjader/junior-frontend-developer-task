@@ -1,25 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { EmployeesService } from '../../services/employees.service';
-
-interface Employee {
-  firstName: string;
-  lastName: string;
-  id: string;
-  subordinates: Employee[];
-  isExpanded?: boolean;
-}
+import { Component, Input } from '@angular/core';
+import { Employee } from '../../interfaces/employee';
 
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent implements OnInit {
-  employeeStructure!: Employee;
+export class EmployeeListComponent {
+  @Input() employeeStructure!: Employee;
 
-  constructor(private employeesService: EmployeesService) {}
+  hasSubordinates(employee: Employee): boolean {
+    return employee.subordinates && employee.subordinates.length > 0;
+  }
 
-  ngOnInit(): void {
-    this.employeeStructure = this.employeesService.getEmployeeStructure();
+  toggleExpand(employee: Employee): void {
+    employee.isExpanded = !employee.isExpanded;
   }
 }

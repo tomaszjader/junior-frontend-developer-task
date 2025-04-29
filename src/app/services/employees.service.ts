@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import employeeStructure from '../data/employee-structure.json';
+import employeesList from '../data/employees.json';
 import { Employee } from '../interfaces/employee';
 
 @Injectable({
@@ -10,6 +11,14 @@ import { Employee } from '../interfaces/employee';
 export class EmployeesService {
 
   constructor(private http: HttpClient) { }
+
+  getEmployees(): Employee[] {
+    return employeesList.map(emp => ({
+      ...emp,
+      subordinates: [],
+      isExpanded: false
+    }));
+  }
 
   getEmployeeStructure(): Employee {
     return employeeStructure;

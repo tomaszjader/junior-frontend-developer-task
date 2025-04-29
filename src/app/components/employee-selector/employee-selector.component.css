@@ -1,0 +1,31 @@
+.employee-selector {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.employee-select {
+  width: 300px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.employee-select:hover {
+  border-color: #bbdefb;
+}
+
+.employee-select:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.employee-select option {
+  padding: 8px;
+  font-size: 14px;
+}
