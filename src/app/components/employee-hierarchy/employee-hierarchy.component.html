@@ -1,12 +1,12 @@
-<div class="hierarchy-container" *ngIf="selectedEmployee">
-  <h3>Hierarchia przełożonych</h3>
-  <div class="supervisors-list">
-    <div class="supervisor-item" *ngFor="let supervisor of supervisors">
-      <div class="supervisor-info">
-        <span class="supervisor-name">{{ supervisor.firstName }} {{ supervisor.lastName }}</span>
-        <span class="supervisor-id">(ID: {{ supervisor.id }})</span>
+<div class="employee-hierarchy" *ngIf="selectedEmployee">
+  <h3 class="employee-hierarchy__title">Hierarchia przełożonych</h3>
+  <div class="employee-hierarchy__supervisors-list">
+    <div class="employee-hierarchy__supervisor" *ngFor="let supervisor of supervisors">
+      <div class="employee-hierarchy__supervisor-info">
+        <span class="employee-hierarchy__supervisor-name">{{ supervisor.firstName }} {{ supervisor.lastName }}</span>
+        <span class="employee-hierarchy__supervisor-id">(ID: {{ supervisor.id }})</span>
       </div>
-      <div class="hierarchy-line" *ngIf="supervisor !== supervisors[supervisors.length - 1]"></div>
+      <div class="employee-hierarchy__line" *ngIf="supervisor !== supervisors[supervisors.length - 1]"></div>
     </div>
   </div>
 </div>

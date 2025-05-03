@@ -1,10 +1,10 @@
-.employee-selector {
+.employee {
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
-.employee-select {
+.employee__select {
   width: 300px;
   padding: 8px 12px;
   font-size: 16px;
@@ -15,17 +15,21 @@
   transition: border-color 0.2s;
 }
 
-.employee-select:hover {
+.employee__select:hover {
   border-color: #bbdefb;
 }
 
-.employee-select:focus {
+.employee__select:focus {
   outline: none;
   border-color: #2196f3;
   box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
 }
 
-.employee-select option {
+.employee__option {
   padding: 8px;
   font-size: 14px;
+}
+
+.employee__option--placeholder {
+  color: #757575;
 }

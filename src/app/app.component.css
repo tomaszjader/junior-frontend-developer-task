@@ -1,5 +1,17 @@
-.app-container {
+.app {
+  width: 100%;
+}
+
+.app__container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.app__selector {
+  margin-bottom: 20px;
+}
+
+.app__hierarchy {
+  display: block;
 }

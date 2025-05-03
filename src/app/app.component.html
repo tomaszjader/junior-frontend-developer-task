@@ -1,4 +1,6 @@
-<div class="app-container">
-  <app-employee-selector (employeeSelected)="onEmployeeSelected($event)"></app-employee-selector>
-  <app-employee-hierarchy [selectedEmployee]="selectedEmployee"></app-employee-hierarchy>
+<div class="app">
+  <div class="app__container">
+    <app-employee-selector class="app__selector" (employeeSelected)="onEmployeeSelected($event)"></app-employee-selector>
+    <app-employee-hierarchy class="app__hierarchy" [selectedEmployee]="selectedEmployee"></app-employee-hierarchy>
+  </div>
 </div>

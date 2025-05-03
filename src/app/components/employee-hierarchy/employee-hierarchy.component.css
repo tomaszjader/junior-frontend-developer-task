@@ -1,4 +1,4 @@
-.hierarchy-container {
+.employee-hierarchy {
   margin: 20px;
   padding: 15px;
   border: 1px solid #e0e0e0;
@@ -6,24 +6,24 @@
   background-color: #fff;
 }
 
-.hierarchy-container h3 {
+.employee-hierarchy__title {
   margin: 0 0 15px 0;
   color: #333;
 }
 
-.supervisors-list {
+.employee-hierarchy__supervisors-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.supervisor-item {
+.employee-hierarchy__supervisor {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.supervisor-info {
+.employee-hierarchy__supervisor-info {
   padding: 8px 12px;
   background-color: #f5f5f5;
   border-radius: 4px;
@@ -32,17 +32,17 @@
   gap: 8px;
 }
 
-.supervisor-name {
+.employee-hierarchy__supervisor-name {
   font-weight: 500;
   color: #2c3e50;
 }
 
-.supervisor-id {
+.employee-hierarchy__supervisor-id {
   color: #7f8c8d;
   font-size: 0.9em;
 }
 
-.hierarchy-line {
+.employee-hierarchy__line {
   width: 2px;
   height: 20px;
   background-color: #bdc3c7;

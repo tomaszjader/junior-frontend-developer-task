@@ -1,7 +1,7 @@
-<div class="employee-selector">
-  <select (change)="onSelect(getSelectedValue($event))" class="employee-select">
-    <option value="" disabled selected>Wybierz pracownika</option>
-    <option *ngFor="let employee of employees" [value]="employee.id">
+<div class="employee">
+  <select (change)="onSelect(getSelectedValue($event))" class="employee__select">
+    <option value="" disabled selected class="employee__option employee__option--placeholder">Wybierz pracownika</option>
+    <option *ngFor="let employee of employees" [value]="employee.id" class="employee__option">
       {{ employee.firstName }} {{ employee.lastName }}
     </option>
   </select>
