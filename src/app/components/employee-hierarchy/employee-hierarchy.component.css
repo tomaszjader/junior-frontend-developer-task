@@ -1,14 +1,13 @@
 .employee-hierarchy {
   margin: 20px;
   padding: 15px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  background-color: #fff;
+  border: 2px solid #1f2937;
+  border-radius: 20px;
 }
 
 .employee-hierarchy__title {
   margin: 0 0 15px 0;
-  color: #333;
+  color: #FFF;
 }
 
 .employee-hierarchy__supervisors-list {
@@ -24,17 +23,18 @@
 }
 
 .employee-hierarchy__supervisor-info {
-  padding: 8px 12px;
-  background-color: #f5f5f5;
-  border-radius: 4px;
+  background: #ceff7e;
+  padding: 14px 32px;
+  border-radius: 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 
 .employee-hierarchy__supervisor-name {
   font-weight: 500;
-  color: #2c3e50;
+  color: #020916;
 }
 
 .employee-hierarchy__supervisor-id {
@@ -46,5 +46,5 @@
   width: 2px;
   height: 20px;
   background-color: #bdc3c7;
-  margin-left: 20px;
+  margin-left: 60px;
 }
