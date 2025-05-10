@@ -1,6 +1,6 @@
 <div class="app">
   <div class="app__container">
     <app-employee-selector class="app__selector" (employeeSelected)="onEmployeeSelected($event)"></app-employee-selector>
-    <app-employee-hierarchy class="app__hierarchy" [selectedEmployee]="selectedEmployee"></app-employee-hierarchy>
+    <app-employee-hierarchy *ngIf="selectedEmployee" class="app__hierarchy" [selectedEmployee]="selectedEmployee"></app-employee-hierarchy>
   </div>
 </div>

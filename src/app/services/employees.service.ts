@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import employeeStructure from '../data/employee-structure.json';
 import employeesList from '../data/employees.json';
 import { Employee } from '../interfaces/employee';
@@ -10,7 +8,7 @@ import { Employee } from '../interfaces/employee';
 })
 export class EmployeesService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   getEmployees(): Employee[] {
     return employeesList.map(emp => ({
@@ -29,13 +27,31 @@ export class EmployeesService {
       return employees;
     }
     
-    for (const subordinate of employees.subordinates) {
-      const found = this.getEmployeeById(subordinate, id);
-      if (found) {
-        return found;
+    return employees.subordinates.reduce<Employee | null>((found, subordinate) => {
+      if (found) return found;
+      return this.getEmployeeById(subordinate, id);
+    }, null);
+  }
+
+  findSupervisorPath(targetId: string): Employee[] {
+    const structure = this.getEmployeeStructure();
+    const path: Employee[] = [];
+    this.findSupervisorPathRecursive(structure, targetId, [], path);
+    return path;
+  }
+
+  private findSupervisorPathRecursive(current: Employee, targetId: string, currentPath: Employee[], result: Employee[]): boolean {
+    if (current.id === targetId) {
+      result.push(...currentPath, current);
+      return true;
+    }
+
+    for (const subordinate of current.subordinates) {
+      if (this.findSupervisorPathRecursive(subordinate, targetId, [...currentPath, current], result)) {
+        return true;
       }
     }
-    
-    return null;
+
+    return false;
   }
 }

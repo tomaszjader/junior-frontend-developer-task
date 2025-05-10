@@ -1,7 +1,7 @@
 <div class="employee-hierarchy" *ngIf="selectedEmployee">
   <h3 class="employee-hierarchy__title">Hierarchia przełożonych</h3>
   <div class="employee-hierarchy__supervisors-list">
-    <div class="employee-hierarchy__supervisor" *ngFor="let supervisor of supervisors">
+    <div class="employee-hierarchy__supervisor" *ngFor="let supervisor of supervisors; trackBy: trackBySupervisorId">
       <div class="employee-hierarchy__supervisor-info">
         <span class="employee-hierarchy__supervisor-name">{{ supervisor.firstName }} {{ supervisor.lastName }}</span>
         <span class="employee-hierarchy__supervisor-id">(ID: {{ supervisor.id }})</span>

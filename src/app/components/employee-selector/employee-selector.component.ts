@@ -15,14 +15,15 @@ export class EmployeeSelectorComponent {
     this.employees = this.employeesService.getEmployees();
   }
 
-  getSelectedValue(event: Event): string {
-    return (event.target as HTMLSelectElement).value;
-  }
-
-  onSelect(employeeId: string): void {
+  onSelect(event: Event): void {
+    const employeeId = (event.target as HTMLSelectElement).value;
     const selectedEmployee = this.employees.find(emp => emp.id === employeeId);
     if (selectedEmployee) {
       this.employeeSelected.emit(selectedEmployee);
     }
+  }
+
+  trackByEmployeeId(index: number, employee: Employee): string {
+    return employee.id;
   }
 }
